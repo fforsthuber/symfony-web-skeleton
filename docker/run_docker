@@ -1,0 +1,5 @@
+docker build -t php74_fpm_xdebug -f ./docker/Dockerfile --build-arg=USER=${USER} --build-arg=UID=${UID} ./docker/.
+
+docker run --rm -u${UID} -v ${PWD}:/var/www/project -p 8000:8000 -p 9003:9003 -it php74_fpm_xdebug bash
+
+symfony new webapp --full
